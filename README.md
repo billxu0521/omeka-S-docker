@@ -17,6 +17,10 @@ OmekaS的系統文檔放置在LXC的環境中
 若需要更新或放置檔案，開啟ssh使用SFTP傳輸即可
 
 
+## 安裝OmekaS
+將omeka-s-3.2.2.zip解壓縮
+放置到目錄對應docker-compose.yml中omekas的volume
+
 ## 自動重開
 已經設定完畢
 可以參考文檔
