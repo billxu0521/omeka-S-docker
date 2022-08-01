@@ -1,4 +1,5 @@
-FROM pudding/dlll-paas-base-image:php-7.4-apache-20220617-1837
+FROM pudding/dlll-paas-base-image:php-8-apache-20220616-1816
+#FROM pudding/dlll-paas-base-image:php-7.4-apache-20220617-1837
 #FROM qua.paas-admin.dlll.nccu.edu.tw/dlll/dlll-paas-starter-pudding:starter-fa7562e5
 
 # ------------------
@@ -11,9 +12,15 @@ EXPOSE 80
 #ENV env1=a
 #ENV env2=php
 #WORKDIR /var/www/html/
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends sendmail && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN rm -rf /var/www/html
 RUN mkdir -p /var/www/html
+
+#start senmail
+RUN sed -i '/#!\/bin\/sh/aservice sendmail restart' /usr/local/bin/docker-php-entrypoint
 
 CMD ["apache2-foreground"]
 

@@ -22,7 +22,7 @@ services:
       PMA_HOST: mariadb
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: password
 
   omekas:
     build: .

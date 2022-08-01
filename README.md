@@ -16,7 +16,6 @@ docker-compose up
 OmekaS的系統文檔放置在LXC的環境中
 若需要更新或放置檔案，開啟ssh使用SFTP傳輸即可
 
-
 ## 安裝OmekaS
 將omeka-s-3.2.2.zip解壓縮
 放置到目錄對應docker-compose.yml中omekas的volume
@@ -36,12 +35,14 @@ docker-startup.sh
 
 ## 應用
 1.複製回復>啟動
-2.若OmekaS版本有更新可以考慮更新(參考說明)
-3.放置模組與主題(依照需求)
-4.啟動doecker
-5.設定OmekaS
-6.phpMyadmin視狀況選擇開啟關閉
-7.複製>大量建置
+2.LXC容器要注意有開啟nesting 在option>feature
+3.若OmekaS版本有更新可以考慮更新(參考說明)
+4.放置模組與主題(依照需求)
+5.啟動doecker
+6.設定OmekaS
+7.phpMyadmin視狀況選擇開啟關閉
+8.複製>大量建置
+
 
 ## 打開ssh
 修改sshd_config文件
