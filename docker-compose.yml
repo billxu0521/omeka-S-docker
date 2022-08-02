@@ -8,6 +8,7 @@ services:
       MYSQL_DATABASE: omeka
       MYSQL_USER: omeka
       MYSQL_PASSWORD: omeka
+    hostname: <your-domain> #need FADN for mail
     ports:
       - "3306:3306"
 
