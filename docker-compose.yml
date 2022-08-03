@@ -16,7 +16,6 @@ services:
     depends_on:
       - mariadb
     image: phpmyadmin/phpmyadmin
-    restart: always
     ports:
       - "8080:80"
     environment:
@@ -29,6 +28,8 @@ services:
     build: .
     depends_on:
       - "mariadb"
+    restart: always
+    hostname: <your-domain> #need FADN for mail
     ports:
       - "80:80"
     volumes:

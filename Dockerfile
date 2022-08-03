@@ -19,10 +19,13 @@ RUN apt-get update && \
 RUN rm -rf /var/www/html
 RUN mkdir -p /var/www/html
 
+COPY ./wait-for-it.sh /var/www/wait-for-it.sh
+RUN chmod +x wait-for-it.sh
+
 #start senmail
 RUN sed -i '/#!\/bin\/sh/aservice sendmail restart' /usr/local/bin/docker-php-entrypoint
 
-CMD ["apache2-foreground"]
-
+#CMD ["apache2-foreground"]
+CMD ["./wait-for-it.sh", "targetHost:port","--strict", "--", "apache2-foreground"]
 #RUN echo "ok" >> /var/www/html/a.php
 

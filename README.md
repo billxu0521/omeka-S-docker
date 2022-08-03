@@ -33,6 +33,15 @@ docker-startup.sh
 @reboot root /root/docker-startup.sh
 ```
 
+## 新增偵測啟動
+(參考)[https://github.com/vishnubob/wait-for-it]
+由於自動開機後要確保DB已經先運作再啟動OmekaS
+所以多加了wait-for-it的偵測動作
+此bash會先偵測DB是否先啟動，若不啟動則重試直到有偵測到
+
+在LXC容器中新增 wait-for-it.sh
+剩下Dockefile會處理
+
 ## 應用
 1.複製回復>啟動
 2.LXC容器要注意有開啟nesting 在option>feature
