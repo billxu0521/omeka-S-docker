@@ -3,6 +3,7 @@ version: "3"
 services:
   mariadb:
     image: mariadb:latest
+  #  restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: omeka
@@ -12,23 +13,23 @@ services:
     ports:
       - "3306:3306"
 
-  pma:
-    depends_on:
-      - mariadb
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "8080:80"
-    environment:
-      PMA_HOST: mariadb
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-      MYSQL_ROOT_PASSWORD: password
+  #pma:
+  #  depends_on:
+  #    - mariadb
+  #  image: phpmyadmin/phpmyadmin
+  #  ports:
+  #    - "8080:80"
+  #  environment:
+  #    PMA_HOST: mariadb
+  #    PMA_PORT: 3306
+  #    PMA_ARBITRARY: 1
+  #    MYSQL_ROOT_PASSWORD: password
 
   omekas:
     build: .
     depends_on:
       - "mariadb"
-    restart: always
+    restart: alwadocker-
     hostname: <your-domain> #need FADN for mail
     ports:
       - "80:80"
