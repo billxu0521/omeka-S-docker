@@ -16,6 +16,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends sendmail && \
     rm -rf /var/lib/apt/lists/*
 
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --enable-gd
+RUN docker-php-ext-install gd
+
 RUN rm -rf /var/www/html
 RUN mkdir -p /var/www/html
 

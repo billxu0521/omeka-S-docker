@@ -29,7 +29,7 @@ services:
     build: .
     depends_on:
       - "mariadb"
-    restart: alwadocker-
+    restart: always
     hostname: <your-domain> #need FADN for mail
     ports:
       - "80:80"
